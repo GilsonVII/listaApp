@@ -21,11 +21,18 @@ export const useProdutoViewModel = () => {
     }
   };
 
+  const removerProduto = (idParaRemover: string) => {
+    setProdutos((listaAtual) => 
+      listaAtual.filter((produto) => produto.id !== idParaRemover)
+    );
+  };
+
   return {
     produtos,
     nomeDigitado,
     setNomeDigitado,
     mensagemErro,
     adicionarProduto,
+    removerProduto,
   };
 };

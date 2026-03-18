@@ -1,32 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { produtoItemStyles as styles } from '../../styles/globalStyles';
 
 interface ProdutoItemProps {
   nome: string;
+  onDelete: () => void;
 }
 
-export function ProdutoItem({ nome }: ProdutoItemProps) {
+export function ProdutoItem({ nome, onDelete }: ProdutoItemProps) {
   return (
     <View style={styles.card}>
       <Text style={styles.texto}>📦 {nome}</Text>
+      <TouchableOpacity onPress={onDelete} style={styles.botaoDelete}>
+        <Text style={styles.textoDelete}>X</Text>
+      </TouchableOpacity>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#f0f0f0',
-    padding: 16,
-    borderRadius: 8,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  texto: {
-    fontSize: 16,
-    color: '#333',
-    fontWeight: '500',
-  },
-});
