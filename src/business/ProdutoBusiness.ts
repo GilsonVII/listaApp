@@ -1,24 +1,16 @@
 import { Produto } from '../models/Produto';
 
 export const ProdutoBusiness = {
-  validarENovoProduto: (nomeProduto: string, listaAtual: Produto[]): Produto => {
-    const nomeFormatado = nomeProduto.trim();
+  validarENovoProduto: (nome: string, descricao: string, produtos: Produto[]): Produto => {
+    if (nome.trim() === '') throw new Error('O NOME não pode estar vazio.');
+    if (descricao.trim() === '') throw new Error('A DESCRIÇÃO não pode estar vazia.');
 
-    if (nomeFormatado.length <= 2) {
-      throw new Error("O nome do produto deve ter mais de 2 caracteres.");
-    }
-
-    const jaExiste = listaAtual.some(
-      (produto) => produto.nome.toLowerCase() === nomeFormatado.toLowerCase()
-    );
-    
-    if (jaExiste) {
-      throw new Error("Já existe um produto com esse nome na lista.");
-    }
+    const idHash = Math.random().toString(36).substring(2, 9);
 
     return {
-      id: Math.random().toString(36).substring(7),
-      nome: nomeFormatado,
+      id: idHash,
+      nome,
+      descricao
     };
   }
 };

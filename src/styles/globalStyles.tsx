@@ -109,3 +109,69 @@ export const produtoItemStyles = StyleSheet.create({
     fontSize: 18,
   }
 });
+
+export const detalheScreenStyles = StyleSheet.create({
+  container: { 
+    flex: 1, 
+    padding: 24, 
+    backgroundColor: cores.fundo, 
+    justifyContent: 'center' 
+  },
+  title: { 
+    fontSize: 24, 
+    fontWeight: 'bold', 
+    color: cores.textoPrincipal, 
+    fontFamily: 'monospace', 
+    textAlign: 'center', 
+    marginBottom: 30, 
+    letterSpacing: 2, 
+    textShadowColor: 'rgba(0, 255, 0, 0.5)', 
+    textShadowOffset: { width: 0, height: 0 }, 
+    textShadowRadius: 10 
+  },
+  card: { 
+    backgroundColor: cores.card, 
+    padding: 20, 
+    borderRadius: 12, 
+    borderWidth: 1, 
+    borderColor: cores.borda, 
+    marginBottom: 30,
+    ...Platform.select({
+      ios: { shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 5 },
+      android: { elevation: 5 },
+      web: { boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)' as any }
+    })
+  },
+  label: { 
+    color: cores.textoSecundario, 
+    fontSize: 14, 
+    fontFamily: 'monospace', 
+    marginBottom: 4 
+  },
+  value: { 
+    color: '#FFF', 
+    fontSize: 22, 
+    fontWeight: 'bold', 
+    fontFamily: 'monospace', 
+    marginBottom: 20 
+  },
+  valueDescricao: { 
+    color: '#00FF00',
+    fontSize: 16, 
+    fontFamily: 'monospace' 
+  },
+  botaoVoltar: { 
+    backgroundColor: 'rgba(192, 192, 192, 0.15)', 
+    padding: 16, 
+    borderRadius: 12, 
+    alignItems: 'center', 
+    borderWidth: 1, 
+    borderColor: '#555' 
+  },
+  textoBotao: { 
+    color: '#FFF', 
+    fontWeight: 'bold', 
+    fontFamily: 'monospace', 
+    letterSpacing: 1 
+  }
+});

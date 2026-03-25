@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
-import ProdutoListaScreen from './src/view/screens/ProdutoListaScreen';
-import { appStyles as styles } from './src/styles/globalStyles';
+import { NavigationContainer } from '@react-navigation/native';
+import { StackNavigator } from './src/navigation/StackNavigator';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ProdutoListaScreen />
-    </SafeAreaView>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 }
